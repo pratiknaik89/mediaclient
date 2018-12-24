@@ -1,0 +1,8 @@
+electron app
+/home/pi/.config/lxsession/LXDE/autostart
+
+
+apt-get install imagemagick
+
+
+sudo strace -p 767 -s 9999 -e write

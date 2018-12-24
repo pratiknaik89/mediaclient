@@ -1,0 +1,47 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "arm": "electron-packager . app --overwrite --asar=true --platform=linux --arch=armv7l --icon=assets/icons/png/1024x1024.png --out=release-builds",
+    "armdeb": "electron-installer-debian --src release-builds/app-linux-armv7l/ --dest dist/installers/ --arch armv7l"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-packager": "^12.1.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "deasync": "^0.1.13",
+    "electron-store": "^2.0.0",
+    "express": "^4.16.3",
+    "extract-zip": "^1.6.7",
+    "getmac": "^1.4.6",
+    "hdd-space": "^1.2.0",
+    "imagemin": "^6.0.0",
+    "internet-available": "^1.0.0",
+    "ip": "^1.1.5",
+    "mqtt": "^2.18.8",
+    "multer": "^1.4.1",
+    "node-machine-id": "^1.1.10",
+    "omxplayer-controll": "^0.1.9",
+    "os-utils": "0.0.14",
+    "pytalk": "^1.0.5",
+    "python-shell": "^1.0.6",
+    "request": "^2.88.0",
+    "screenshot-desktop": "^1.5.2",
+    "systeminformation": "^3.45.7"
+  }
+}

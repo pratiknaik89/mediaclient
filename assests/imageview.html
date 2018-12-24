@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <style>
+        html,
+        body,
+        #imagewrap {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            background-color: #383838;
+        }
+
+        div#imagewrap {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <script src="./preloadjs.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <div id="imagewrap"></div>
+
+
+    <script>
+        var preload;
+
+        function preloadimgs(images) {
+            var imgs = images.replace(/"/gi, '').replace('[', '').replace(']', '').split(',');
+
+            preload = new createjs.LoadQueue(true);
+            for (let i = 0; i < imgs.length; i++) {
+                const img = imgs[i];
+                preload.loadFile({
+                    id: "image",
+                    src: img
+                });
+            }
+        }
+
+        function imageCall(url) {
+            console.log(decodeURI(url).replace(/\\/gi, '\\\\'));
+            document.getElementById('imagewrap').style.backgroundImage = "url('" + decodeURI(url).replace(/\\/gi,
+                '\\\\') + "')";
+        }
+    </script>
+</body>
+
+</html>

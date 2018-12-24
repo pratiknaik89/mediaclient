@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .indicator
+    {
+      position: fixed;
+      height: 70px;
+      width: 70px;
+      z-index: 99999999;
+      right: 20px;
+      top: 10px;
+    }
+
+    .indicator img {
+      height: 70px;
+      width: 70px;
+    }
+    div#messagetodisplay {
+      position: fixed;
+      /* height: 70px; */
+      /* width: 70px; */
+      display: none;
+      z-index: 99999999;
+      right: 20px;
+      bottom: 10px;
+      background-color: rgba(0, 0, 0, 0.53);
+      padding: 7px 16px;
+      color: #fff;
+      border-radius: 20px;  
+  }
+  div#serialid {
+    position: fixed;
+    /* height: 70px; */
+    /* width: 70px; */
+    display: none;
+    z-index: 99999999;
+    right: 20px;
+    top: 2px;
+    font-size: 11px;
+    /* font-weight: bold; */
+    background-color: rgba(0, 0, 0, 0.53);
+    padding: 0px 5px;
+    color: #fff;
+    border-radius: 20px; 
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="indicator"> <img src="./assests/spinner.gif" /></div>
+  <div id="messagetodisplay">
+
+  </div>
+
+  <div id="serialid">
+
+  </div>
+  <webview id="foo" src="#" style="width:100%; height:100%;">
+  </webview>
+  <script type="text/javascript">
+    // Event handlers for loading events.
+    // Use these to handle loading screens, transitions, etc
+    let webview;
+    let toastmsg;
+    let serialnum;
+    onload = () => {
+      webview = document.getElementById('foo')
+      const indicator = document.querySelector('.indicator')
+      toastmsg = document.getElementById('messagetodisplay');
+      serialnum = document.getElementById('serialid');
+      const loadstart = () => {
+        // indicator.innerText = 'loading...'
+        indicator.style.display = '';
+      }
+
+      const loadstop = () => {
+        // indicator.innerText = ''
+        indicator.style.display = 'none';
+      }
+
+
+      webview.addEventListener('did-start-loading', loadstart);
+      webview.addEventListener('did-stop-loading', loadstop);
+
+
+
+      require('./renderer.js');
+
+    }
+  </script>
+
+</body>
+
+</html>
